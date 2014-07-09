@@ -1,0 +1,44 @@
+jdarith.lo: ../jdarith.c ../jinclude.h jconfig.h \
+  /home/ophir/Downloads/emscripten/emscripten/system/include/libc/stddef.h \
+  /home/ophir/Downloads/emscripten/emscripten/system/include/libc/bits/alltypes.h \
+  /home/ophir/Downloads/emscripten/emscripten/system/include/compat/stdlib.h \
+  /home/ophir/Downloads/emscripten/emscripten/system/include/libc/stdlib.h \
+  /home/ophir/Downloads/emscripten/emscripten/system/include/libc/features.h \
+  /home/ophir/Downloads/emscripten/emscripten/system/include/libc/alloca.h \
+  /home/ophir/Downloads/emscripten/emscripten/system/include/libc/stdio.h \
+  /home/ophir/Downloads/emscripten/emscripten/system/include/compat/string.h \
+  /home/ophir/Downloads/emscripten/emscripten/system/include/libc/string.h \
+  /home/ophir/Downloads/emscripten/emscripten/system/include/libc/strings.h \
+  ../jpeglib.h ../jmorecfg.h ../jpegint.h ../jerror.h
+
+../jinclude.h:
+
+jconfig.h:
+
+/home/ophir/Downloads/emscripten/emscripten/system/include/libc/stddef.h:
+
+/home/ophir/Downloads/emscripten/emscripten/system/include/libc/bits/alltypes.h:
+
+/home/ophir/Downloads/emscripten/emscripten/system/include/compat/stdlib.h:
+
+/home/ophir/Downloads/emscripten/emscripten/system/include/libc/stdlib.h:
+
+/home/ophir/Downloads/emscripten/emscripten/system/include/libc/features.h:
+
+/home/ophir/Downloads/emscripten/emscripten/system/include/libc/alloca.h:
+
+/home/ophir/Downloads/emscripten/emscripten/system/include/libc/stdio.h:
+
+/home/ophir/Downloads/emscripten/emscripten/system/include/compat/string.h:
+
+/home/ophir/Downloads/emscripten/emscripten/system/include/libc/string.h:
+
+/home/ophir/Downloads/emscripten/emscripten/system/include/libc/strings.h:
+
+../jpeglib.h:
+
+../jmorecfg.h:
+
+../jpegint.h:
+
+../jerror.h:
