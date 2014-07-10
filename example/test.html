@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf8" />
+  <title>epeg</title>
+</head>
+
+<body>
+<input type='file' id='fileInput' />
+<img id="outputimg"/>
+
+<script src="../epeg.js"></script>
+<script>
+var input = document.getElementById('fileInput');
+var outputimg = document.getElementById('outputimg');
+
+function pn () {
+  return Date.now();
+}
+
+input.onchange = function() {
+  var time = pn();
+  var f = input.files[0];
+  var reader = new FileReader();
+  reader.readAsArrayBuffer(f);
+  reader.onloadend = function(){
+    console.log("Read file: ", (pn()-time), "ms"); 
+    var uarr = new Uint8Array(reader.result);
+    var thumb = create_thumbnail(uarr, 100);
+    console.log("Create thumbnail: ", (pn()-time), "ms");
+    var blob = new Blob([thumb]);
+    var url = window.URL.createObjectURL(blob);
+    outputimg.src = url;
+    outputimg.onload = function(){
+      console.log("Read thumbnail", (pn()-time), "ms");
+    }
+  }
+}
+</script>
+</body>
+</html>
