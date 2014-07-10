@@ -8,6 +8,7 @@
 <body>
 <input type='file' id='fileInput' />
 <img id="outputimg"/>
+<canvas id="outputCanvas" />
 
 <script src="../epeg.js"></script>
 <script>
@@ -19,6 +20,46 @@ function pn () {
 }
 
 input.onchange = function() {
+canvas_thumb();
+}
+
+var canvas = document.getElementById('outputCanvas');
+canvas.width = 100;
+canvas.height = 100;
+var ctx = canvas.getContext('2d');
+var img = new Image();
+
+function canvas_thumb () {
+  var time = pn();
+  var f = input.files[0];
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  var reader = new FileReader();
+  reader.readAsArrayBuffer(f);
+  reader.onloadend = function(){
+    console.log("Read file: ", (pn()-time), "ms"); 
+    var uarr = new Uint8Array(reader.result);
+    var blob = new Blob([uarr]);
+    var url = window.URL.createObjectURL(blob);
+    img.src = url;
+    img.onload = function () {
+      console.log('Read big image: ', pn()-time, 'ms');
+      console.log('dimensions: ', img.width, img.height);
+      var w,h;
+      if (img.width > img.height) {
+        w = 100;
+        h = img.height * 100 / img.width;
+      } else {
+        h = 100;
+        w = img.width * 100 / img.height;
+      }
+      ctx.drawImage(img, 0,0,w,h);
+      console.log('resize: ', pn()-time);
+    }
+  }
+
+}
+
+function epeg_thumb() {
   var time = pn();
   var f = input.files[0];
   var reader = new FileReader();
